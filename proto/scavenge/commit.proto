@@ -1,0 +1,12 @@
+syntax = "proto3";
+package kiethuynh0904.scavenge.scavenge;
+
+option go_package = "github.com/kiethuynh0904/scavenge/x/scavenge/types";
+
+message Commit {
+  string index = 1; 
+  string solutionHash = 2; 
+  string solutionScavengerHash = 3; 
+  
+}
+
