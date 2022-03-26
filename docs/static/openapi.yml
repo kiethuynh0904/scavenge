@@ -47027,6 +47027,8 @@ definitions:
     description: >-
       QueryAppVersionResponse is the response type for the Query/AppVersion RPC
       method.
+  kiethuynh0904.scavenge.scavenge.MsgSubmitScavengeResponse:
+    type: object
   kiethuynh0904.scavenge.scavenge.Params:
     type: object
     description: Params defines the parameters for the module.
