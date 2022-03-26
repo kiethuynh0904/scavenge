@@ -4,13 +4,15 @@ import { StdFee } from "@cosmjs/launchpad";
 import { SigningStargateClient } from "@cosmjs/stargate";
 import { Registry, OfflineSigner, EncodeObject, DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
 import { Api } from "./rest";
-import { MsgSubmitScavenge } from "./types/scavenge/tx";
 import { MsgCommitSolution } from "./types/scavenge/tx";
+import { MsgRevealSolution } from "./types/scavenge/tx";
+import { MsgSubmitScavenge } from "./types/scavenge/tx";
 
 
 const types = [
-  ["/kiethuynh0904.scavenge.scavenge.MsgSubmitScavenge", MsgSubmitScavenge],
   ["/kiethuynh0904.scavenge.scavenge.MsgCommitSolution", MsgCommitSolution],
+  ["/kiethuynh0904.scavenge.scavenge.MsgRevealSolution", MsgRevealSolution],
+  ["/kiethuynh0904.scavenge.scavenge.MsgSubmitScavenge", MsgSubmitScavenge],
   
 ];
 export const MissingWalletError = new Error("wallet is required");
@@ -43,8 +45,9 @@ const txClient = async (wallet: OfflineSigner, { addr: addr }: TxClientOptions =
 
   return {
     signAndBroadcast: (msgs: EncodeObject[], { fee, memo }: SignAndBroadcastOptions = {fee: defaultFee, memo: ""}) => client.signAndBroadcast(address, msgs, fee,memo),
-    msgSubmitScavenge: (data: MsgSubmitScavenge): EncodeObject => ({ typeUrl: "/kiethuynh0904.scavenge.scavenge.MsgSubmitScavenge", value: MsgSubmitScavenge.fromPartial( data ) }),
     msgCommitSolution: (data: MsgCommitSolution): EncodeObject => ({ typeUrl: "/kiethuynh0904.scavenge.scavenge.MsgCommitSolution", value: MsgCommitSolution.fromPartial( data ) }),
+    msgRevealSolution: (data: MsgRevealSolution): EncodeObject => ({ typeUrl: "/kiethuynh0904.scavenge.scavenge.MsgRevealSolution", value: MsgRevealSolution.fromPartial( data ) }),
+    msgSubmitScavenge: (data: MsgSubmitScavenge): EncodeObject => ({ typeUrl: "/kiethuynh0904.scavenge.scavenge.MsgSubmitScavenge", value: MsgSubmitScavenge.fromPartial( data ) }),
     
   };
 };

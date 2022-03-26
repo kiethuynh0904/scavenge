@@ -47029,6 +47029,8 @@ definitions:
       method.
   kiethuynh0904.scavenge.scavenge.MsgCommitSolutionResponse:
     type: object
+  kiethuynh0904.scavenge.scavenge.MsgRevealSolutionResponse:
+    type: object
   kiethuynh0904.scavenge.scavenge.MsgSubmitScavengeResponse:
     type: object
   kiethuynh0904.scavenge.scavenge.Params:
